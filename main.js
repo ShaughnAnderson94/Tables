@@ -74,8 +74,9 @@ let submitButton = document.createElement('button');
 submitButton.id = 'submitbuton';
 submitButton.innerHTML = 'Submit';
 calcForm.appendChild(submitButton);
+let caulculationResults = []
 function runCalc(){
-    let caulculationResults = []
+    
     function calculator(x,y,operator, xmod, ymod , totalmod){
        
         switch (operator) {
@@ -149,3 +150,29 @@ ColumnFill(timeArray,'1-');
 ColumnFill(cellDArray, '2-');
 ColumnFill(volumeArray, '3-');
 
+let aggFind = document.createElement('div');
+ aggFind.id = 'aggFind';
+ document.body.appendChild(aggFind);
+
+ let findTitle = document.createElement('h2');
+ findTitle.id = "findTitle"; 
+ findTitle.innerHTML = 'Stats Tools';
+ aggFind.appendChild(findTitle);
+
+ let maxButton = document.createElement('button');
+maxButton.id = 'maxbutton';
+maxButton.innerHTML = 'Maximum';
+aggFind.appendChild(maxButton);
+
+let resultDisplay = document.createElement('p');
+resultDisplay.id = 'resultDisplay';
+aggFind.appendChild(resultDisplay);
+
+
+function maxFind(data){
+   
+resultDisplay.innerHTML = Math.max(data);
+};
+maxButton.addEventListener('click', function() {
+    maxFind(...caulculationResults);
+});
